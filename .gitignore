@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Lesson 1.1
+less1.1/build
+less1.1/include/version.h
+less1.1/.vs
+
