@@ -12,8 +12,7 @@ message (STATUS "Current build number is: " ${BUILD_NUM})
 project(helloworld VERSION 0.0.${BUILD_NUM})
 
 message (STATUS "Boost inlude dir is: " $ENV{BOOST_INCLUDEDIR})
-find_package(Boost 1.72.0 COMPONENTS unit_test_framework)
-
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
