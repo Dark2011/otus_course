@@ -25,7 +25,7 @@ BOOST_AUTO_TEST_CASE(validate_test_version)
 	//
 	const int VERSION_PATCH_POS = 2;	
 	
-	std::cout << "PATCH " << std::stoi(res[VERSION_PATCH_POS] << std::endl;
+	std::cout << "PATCH " << std::stoi(res[VERSION_PATCH_POS]) << std::endl;
 	BOOST_CHECK(std::stoi(res[VERSION_PATCH_POS]) > 0);
 }
 
