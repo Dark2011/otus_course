@@ -54,4 +54,4 @@ target_link_libraries(test_version
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 	
 enable_testing()
-add_test(test_version test_version)
+add_test(validate_test_version test_version)
