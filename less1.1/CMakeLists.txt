@@ -13,6 +13,7 @@ project(helloworld VERSION 0.0.${BUILD_NUM})
 
 
 set(Boost_USE_MULTITHREADED ON)
+set(BOOST_TEST_LOG_LEVEL message)
 message (STATUS "Boost inlude dir is: " $ENV{BOOST_INCLUDEDIR})
 find_package(Boost COMPONENTS unit_test_framework)
 
@@ -56,4 +57,4 @@ target_link_libraries(test_version
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 	
 enable_testing()
-add_test(test_version test_version)
+add_test(validate_test_version test_version)
