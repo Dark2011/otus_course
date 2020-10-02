@@ -15,7 +15,7 @@ BOOST_AUTO_TEST_CASE(validate_test_version)
 	
 	std::cout << "BUILD " << current_version << std::endl;
 
-	/*using tokenizer = boost::tokenizer<boost::char_separator<char>> ;
+	using tokenizer = boost::tokenizer<boost::char_separator<char>> ;
 	tokenizer tok{current_version};
 	std::vector<std::string> res;
 	
@@ -24,6 +24,7 @@ BOOST_AUTO_TEST_CASE(validate_test_version)
 	
 	const int VERSION_DIGIT_COUNT = 3;
 	BOOST_CHECK_EQUAL(res.size(), VERSION_DIGIT_COUNT);
+	/*
 	//
 	const int VERSION_PATCH_POS = 2;	
 	
