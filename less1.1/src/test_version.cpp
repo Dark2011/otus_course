@@ -1,4 +1,5 @@
 #define BOOST_TEST_MODULE test_version
+#define BOOST_TEST_LOG_LEVEL all
 
 #include <version.h>
 #include <boost/test/unit_test.hpp>
