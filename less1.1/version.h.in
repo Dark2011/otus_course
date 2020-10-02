@@ -11,6 +11,6 @@
 inline std::string version() 
 {
 	std::stringstream ss;
-	ss << "ver_" << PROJECT_VERSION_MAJOR << "." << PROJECT_VERSION_MINOR << "." << PROJECT_VERSION_PATCH << std::endl;
+	ss << PROJECT_VERSION_MAJOR << "." << PROJECT_VERSION_MINOR << "." << PROJECT_VERSION_PATCH; 
 	return ss.str();
 }
