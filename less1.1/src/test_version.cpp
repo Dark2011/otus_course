@@ -23,7 +23,13 @@ BOOST_AUTO_TEST_CASE(validate_test_version)
 		res.push_back(token);
 	
 	const int VERSION_DIGIT_COUNT = 3;
+	BOOST_TEST_MESSAGE("Current version: ");
+	BOOST_TEST_MESSAGE(current_version);
+	
 	std::cout << "SIZE: " << res.size() << std::endl;
+	BOOST_TEST_MESSAGE("Version size: ");
+	BOOST_TEST_MESSAGE(res.size());
+	
 	/*BOOST_CHECK_EQUAL(res.size(), VERSION_DIGIT_COUNT);
 	
 	//
