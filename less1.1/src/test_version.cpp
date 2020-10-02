@@ -19,7 +19,7 @@ BOOST_AUTO_TEST_CASE(validate_test_version)
 		res.push_back(token);
 	
 	const int VERSION_DIGIT_COUNT = 3;
-	BOOST_CHECK_EQUAL(res.size(), VERSION_DIGIT_COUNT, true);
+	BOOST_CHECK_EQUAL(res.size(), VERSION_DIGIT_COUNT);
 	//
 	const int VERSION_PATCH_POS = 2;	
 	BOOST_CHECK(std::stoi(res[VERSION_PATCH_POS]) > 0);
