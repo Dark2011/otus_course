@@ -1,6 +1,5 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.2)
 cmake_policy(SET CMP0074 NEW)
-
 
 set(BUILD_NUM 1)
 if($ENV{TRAVIS_BUILD_NUMBER})
@@ -13,7 +12,6 @@ project(helloworld VERSION 0.0.${BUILD_NUM})
 
 
 set(Boost_USE_MULTITHREADED ON)
-set(BOOST_TEST_LOG_LEVEL message)
 message (STATUS "Boost inlude dir is: " $ENV{BOOST_INCLUDEDIR})
 find_package(Boost COMPONENTS unit_test_framework)
 
@@ -25,14 +23,13 @@ set(HDR include/version.h)
 set(APP_SRC src/helloworld.cpp)
 set(TEST_SRC src/test_version.cpp)
 
-add_executable(helloworld_cli ${APP_SRC})
+add_executable(helloworld ${APP_SRC})
 add_executable(test_version ${TEST_SRC})
 
-set_target_properties(helloworld_cli PROPERTIES
+set_target_properties(helloworld PROPERTIES
 	CXX_STANDARD 14
 	CXX_STANDARD_REQUIRED ON 
 )
-
 
 
 set_target_properties(test_version PROPERTIES
@@ -40,7 +37,7 @@ set_target_properties(test_version PROPERTIES
     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK	 
 )
 
-#target_include_directories(helloworld_cli
+#target_include_directories(helloworld
     #PRIVATE "${PROJECT_SOURCE_DIR}/include/version.h"
 #)
 
@@ -54,7 +51,7 @@ target_link_libraries(test_version
     ${Boost_LIBRARIES}
 )
 
-install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
+install(TARGETS helloworld RUNTIME DESTINATION bin)
 	
 set(CPACK_GENERATOR DEB)
 
@@ -63,8 +60,7 @@ set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 
 set(CPACK_PACKAGE_CONTACT ilya.zah86@gmail.com)
-include(CPack)	
-	
+include(CPack)		
 	
 enable_testing()
 add_test(validate_version_call test_version)
