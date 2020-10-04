@@ -67,4 +67,6 @@ include(CPack)
 	
 	
 enable_testing()
-add_test(test_version test_version)
+add_test(validate_version_call test_version)
+add_test(parsing_validate test_version)
+add_test(validate_patch_version test_version)
