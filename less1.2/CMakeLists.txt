@@ -11,7 +11,7 @@ message (STATUS "Current build number is: " ${BUILD_NUM})
 project(ip_filter VERSION 0.0.${BUILD_NUM})
 
 
-#set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_MULTITHREADED ON)
 #message (STATUS "Boost inlude dir is: " $ENV{BOOST_INCLUDEDIR})
 find_package(Boost)
 

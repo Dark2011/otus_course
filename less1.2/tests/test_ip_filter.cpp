@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(check_ip_sort)
 	ipFilter.setIpPool(data);
 	ipFilter.sort(ip_tools::IpFilter::Order::Acsending);
 
-	BOOST_CHECK(std::is_sorted(ipFilter.getIpPool().cbegin(), ipFilter.getIpPool().cend()), std::greater<boost::asio::ip::address_v4>() == true);
+	BOOST_CHECK(std::is_sorted(ipFilter.getIpPool().cbegin(), ipFilter.getIpPool().cend(), std::greater<boost::asio::ip::address_v4>()) == true);
 }
 
 
