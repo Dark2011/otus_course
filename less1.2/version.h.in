@@ -1,0 +1,16 @@
+#pragma once
+
+#include <string>
+#include <iostream>
+#include <sstream>
+
+#define PROJECT_VERSION_MAJOR @helloworld_VERSION_MAJOR@
+#define PROJECT_VERSION_MINOR @helloworld_VERSION_MINOR@
+#define PROJECT_VERSION_PATCH @PROJECT_VERSION_PATCH@
+
+inline std::string version() 
+{
+	std::stringstream ss;
+	ss << PROJECT_VERSION_MAJOR << "." << PROJECT_VERSION_MINOR << "." << PROJECT_VERSION_PATCH; 
+	return ss.str();
+}

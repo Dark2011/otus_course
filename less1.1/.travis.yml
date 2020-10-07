@@ -1,10 +1,10 @@
 language: cpp
 before_script:
-- sudo apt-get install libboost-all-dev -y
+- sudo apt-get install libboost-test-dev -y
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
-- cd less1.2
+- cd less1.1
 - mkdir build
 - cd build
 - cmake ../
@@ -16,6 +16,6 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T ip_filter-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -udark2011:$BINTRAY_API_KEY "https://api.bintray.com/content/dark2011/otus_hw/homework/$TRAVIS_BUILD_NUMBER/ip_filter-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -udark2011:$BINTRAY_API_KEY "https://api.bintray.com/content/dark2011/otus_hw/homework/$TRAVIS_BUILD_NUMBER/helloworld-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
 
 
