@@ -8,6 +8,7 @@
 
 #include "ip_filter.h"
 #include <boost/asio/ip/address_v4.hpp>
+#include <boost/endian.hpp>
 
 
 namespace ip_tools
@@ -28,7 +29,6 @@ namespace ip_tools
                 continue;
             }
         }
-        auto i = _ipPool[0].to_ulong();
     }
 
     const ipv4_vector& IpFilter::getIpPool() const { return _ipPool; }
