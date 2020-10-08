@@ -7,7 +7,12 @@
 #include <functional>
 
 #include "ip_filter.h"
-#include <boost/asio/ip/address.hpp>
+#include <boost/asio/ip/address_v4.hpp>
+
+#define BOOST_ENDIAN_DEPRECATED_NAMES
+#include <boost/endian/endian.hpp>
+
+
 
 
 namespace ip_tools
@@ -52,7 +57,15 @@ namespace ip_tools
             auto internal_comparator = [OctetesCnt, addr](int oct_iter, unsigned char byteValue)
             {
                 int offset = OctetesCnt - oct_iter;
-                int applyOffset = 0;//(addr.to_uint() >> (offset * 8)) & 255;
+                
+                uint32_t address = 0;
+                memcpy(&address, addr.to_bytes().data(), 4);
+                boost::endian::endian_reverse_inplace(address);
+                
+                int applyOffset = (address >> (offset * 8)) & 255;
+
+                //int applyOffset = (addr.to_uint() >> (offset * 8)) & 255; // it doesn't work with boost less the 1.68.0 
+                //  (in version 1.58.0 that is default version of libboost_all_dev we should use addr.to_ulong()
                 return !(applyOffset ^ byteValue);
             };
 
