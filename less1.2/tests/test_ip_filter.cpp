@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(check_stream_splitter)
 
 	BOOST_REQUIRE_EQUAL(raw_data.size(), 17);
 	
-	/*ip_tools::string_vector res1;
+	ip_tools::string_vector res1;
 	for (auto&& str : raw_data)
 	{
 		auto tmp = ip_tools::split(str, '\t');
@@ -54,14 +54,14 @@ BOOST_AUTO_TEST_CASE(check_stream_splitter)
 			res2.push_back(tmp[0]);
 	}
 
-	BOOST_REQUIRE_EQUAL(res1.size(), res2.size());*/
+	//BOOST_REQUIRE_EQUAL(res1.size(), res2.size());
 }
 
 
 
 BOOST_AUTO_TEST_CASE(check_ip_sort)
 {
-	/*ip_tools::IpFilter ipFilter;
+	ip_tools::IpFilter ipFilter;
 	
 	ip_tools::string_vector data
 	{
@@ -83,8 +83,7 @@ BOOST_AUTO_TEST_CASE(check_ip_sort)
 	ipFilter.setIpPool(data);
 	ipFilter.sort(ip_tools::IpFilter::Order::Acsending);
 
-	BOOST_CHECK(std::is_sorted(ipFilter.getIpPool().cbegin(), ipFilter.getIpPool().cend(), std::greater<boost::asio::ip::address_v4>()) == true);*/
-	BOOST_REQUIRE_EQUAL(17, 17);
+	BOOST_CHECK(std::is_sorted(ipFilter.getIpPool().cbegin(), ipFilter.getIpPool().cend(), std::greater<boost::asio::ip::address_v4>()) == true);
 }
 
 
@@ -93,7 +92,7 @@ BOOST_AUTO_TEST_CASE(check_octet_filter)
 {
 	BOOST_REQUIRE_EQUAL(17, 17);
 	
-	/*ip_tools::IpFilter ipFilter;
+	ip_tools::IpFilter ipFilter;
 
 	ip_tools::string_vector data
 	{
@@ -124,12 +123,8 @@ BOOST_AUTO_TEST_CASE(check_octet_filter)
 	BOOST_CHECK(res.size() == 7);
 
 	res = ipFilter.applyFilter({ 0, 192, 168 });
-	BOOST_CHECK(res.size() == 2);*/
+	BOOST_CHECK(res.size() == 2);
 }
-
-
-
-
 
 
 BOOST_AUTO_TEST_SUITE_END()

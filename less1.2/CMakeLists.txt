@@ -14,7 +14,7 @@ project(ip_filter VERSION 0.0.${BUILD_NUM})
 set(Boost_USE_MULTITHREADED ON)
 #message (STATUS "Boost inlude dir is: " $ENV{BOOST_INCLUDEDIR})
 find_package(Boost REQUIRED system unit_test_framework)
-
+#find_package(Boost)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 configure_file(version.h.in ${PROJECT_SOURCE_DIR}/include/version.h)
@@ -24,7 +24,7 @@ set(APP_SRC src/main.cpp src/ip_filter.cpp)
 set(TEST_SRC tests/test_ip_filter.cpp)
 
 add_executable(ip_filter ${APP_HDR} ${APP_SRC})
-#add_executable(test_ip_filter ${APP_HDR} ${TEST_SRC} src/ip_filter.cpp)
+add_executable(test_ip_filter ${APP_HDR} ${TEST_SRC} src/ip_filter.cpp)
 
 set_target_properties(ip_filter PROPERTIES
 	CXX_STANDARD 14
@@ -38,19 +38,19 @@ target_include_directories(ip_filter
 
 target_link_libraries(ip_filter PUBLIC Boost::system)
 
-#set_target_properties(test_ip_filter PROPERTIES
-#	CXX_STANDARD 14
-#    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK	 
-#)
+set_target_properties(test_ip_filter PROPERTIES
+	CXX_STANDARD 14
+    	COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK	 
+)
 
 
-#target_include_directories(test_ip_filter
-#	PRIVATE ${Boost_INCLUDE_DIR} 
-#)
+target_include_directories(test_ip_filter
+	PRIVATE ${Boost_INCLUDE_DIR} 
+)
 
-#target_link_libraries(test_ip_filter
-#    ${Boost_LIBRARIES}
-#)
+target_link_libraries(test_ip_filter
+    ${Boost_LIBRARIES}
+)
 
 install(TARGETS ip_filter RUNTIME DESTINATION bin)
 	
@@ -63,7 +63,7 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT ilya.zah86@gmail.com)
 include(CPack)		
 	
-#enable_testing()
-#add_test(check_stream_splitter test_ip_filter)
-#add_test(check_ip_sort test_ip_filter)
-#add_test(check_octet_filter test_ip_filter)
+enable_testing()
+add_test(check_stream_splitter test_ip_filter)
+add_test(check_ip_sort test_ip_filter)
+add_test(check_octet_filter test_ip_filter)

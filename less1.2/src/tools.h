@@ -2,7 +2,7 @@
 
 // boost
 #include <boost/tokenizer.hpp>
-#include <boost/asio/ip/address.hpp>
+#include <boost/asio/ip/address_v4.hpp>
 // std
 #include <vector>
 #include <string>
