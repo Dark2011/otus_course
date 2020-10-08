@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.2)
-cmake_policy(SET CMP0074 NEW)
 
 set(BUILD_NUM 1)
 if($ENV{TRAVIS_BUILD_NUMBER})
