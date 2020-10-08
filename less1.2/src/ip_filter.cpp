@@ -28,7 +28,7 @@ namespace ip_tools
                 continue;
             }
         }
-        auto i = _ipPool[0].to_uint();
+        auto i = _ipPool[0].to_ulong();
     }
 
     const ipv4_vector& IpFilter::getIpPool() const { return _ipPool; }
