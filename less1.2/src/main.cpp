@@ -1,37 +1,12 @@
 #include "ip_filter.h"
 
 
-#define READ_FROM_FILE
+//#define READ_FROM_FILE
 
 
 
 int main(int argc, char* argv[])
 {
-    //ip_tools::IpFilter ipFilter;
-
-    //ip_tools::string_vector data
-    //{
-    //    "231.233.69.33",
-    //    "10.29.168.152",
-    //    "192.168.1.237",
-    //    "46.182.19.219",
-    //    "255.1.12.16",
-    //    "1.1.46.1",
-    //    "1.231.69.33",
-    //    "46.223.254.56",
-    //    "192.168.1.235",
-    //    "1.70.46.170",
-    //    "1.87.203.225",
-    //    "1.1.234.46",
-    //    "46.223.254.56",
-    //    "46.161.60.92"
-    //};
-
-    //ipFilter.setIpPool(data);
-    //ipFilter.sort(ip_tools::IpFilter::Order::Acsending);
-    //auto res = ipFilter.applyFilter({ 0, 231 });
-
-
     try
     {
         ip_tools::string_vector data;
