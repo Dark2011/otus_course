@@ -44,7 +44,7 @@ namespace ip_tools
     {
         string_vector result;
 
-        auto ip_comparator = [filter](const boost::asio::ip::address_v4& addr) mutable
+        auto ip_comparator = [filter](boost::asio::ip::address_v4& addr) 
         {
             const size_t OctetesCnt = 4;
             bool res = false;
