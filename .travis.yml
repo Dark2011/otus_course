@@ -1,9 +1,7 @@
 language: cpp
 before_script:
-- sudo add-apt-repository -y ppa:mhier/libboost-latest
 - sudo apt update
-- sudo apt-cache policy libboost
-- sudo apt install libboost -y
+- sudo apt install libboost-all-dev
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
