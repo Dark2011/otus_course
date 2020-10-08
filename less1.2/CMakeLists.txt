@@ -24,7 +24,7 @@ set(APP_SRC src/main.cpp src/ip_filter.cpp)
 set(TEST_SRC tests/test_ip_filter.cpp)
 
 add_executable(ip_filter ${APP_HDR} ${APP_SRC})
-add_executable(test_ip_filter ${TEST_SRC})
+add_executable(test_ip_filter ${APP_HDR} ${TEST_SRC} src/ip_filter.cpp)
 
 set_target_properties(ip_filter PROPERTIES
 	CXX_STANDARD 14
