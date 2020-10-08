@@ -8,7 +8,6 @@
 
 #include "ip_filter.h"
 #include <boost/asio/ip/address.hpp>
-#include <boost/endian.hpp>
 
 
 namespace ip_tools
