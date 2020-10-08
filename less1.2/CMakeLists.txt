@@ -33,9 +33,10 @@ set_target_properties(ip_filter PROPERTIES
 
 target_include_directories(ip_filter
     PRIVATE "${PROJECT_SOURCE_DIR}/include/version.h"
-	PRIVATE ${Boost_INCLUDE_DIR} 
+    PRIVATE ${Boost_INCLUDE_DIR} 
 )
 
+target_link_libraries(ip_filter ${Boost_LIBRARIES})
 
 #set_target_properties(test_ip_filter PROPERTIES
 #	CXX_STANDARD 14
