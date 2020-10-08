@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(check_stream_splitter)
 			res2.push_back(tmp[0]);
 	}
 
-	//BOOST_REQUIRE_EQUAL(res1.size(), res2.size());
+	BOOST_REQUIRE_EQUAL(res1.size(), res2.size());
 }
 
 
@@ -115,6 +115,8 @@ BOOST_AUTO_TEST_CASE(check_octet_filter)
 	ipFilter.sort(ip_tools::IpFilter::Order::Acsending);
 	auto res = ipFilter.applyFilter({ 0, 231 }); 
 	BOOST_CHECK(res.size() == 0);
+
+	
 
 	res = ipFilter.applyFilter({ 0, -1, 231 });
 	BOOST_CHECK(res.size() == 1);

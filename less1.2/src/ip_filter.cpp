@@ -91,14 +91,19 @@ namespace ip_tools
 
         auto iter_begin = std::find_if(_ipPool.begin(),  _ipPool.end(),  ip_comparator);
         auto iter_end   = std::find_if(_ipPool.rbegin(), _ipPool.rend(), ip_comparator);
-        ptrdiff_t gap   = iter_end - _ipPool.rbegin();
 
-        auto iter = iter_begin;
-        for (; iter != _ipPool.end() - gap; ++iter)
+        if (iter_begin != _ipPool.end() &&  iter_end != _ipPool.rend())
         {
-            if (ip_comparator(*iter))
-                result.push_back((*iter).to_string());    
+            ptrdiff_t gap = iter_end - _ipPool.rbegin();
+
+            auto iter = iter_begin;
+            for (; iter != _ipPool.end() - gap; ++iter)
+            {
+                if (ip_comparator(*iter))
+                    result.push_back((*iter).to_string());
+            }
         }
+        
         return result;
     }
 }
