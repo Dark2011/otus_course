@@ -7,7 +7,7 @@
 #include <functional>
 
 #include "ip_filter.h"
-#include <boost/asio/ip/address.hpp>
+#include <boost/asio/ip/address_v4.hpp>
 
 
 namespace ip_tools
