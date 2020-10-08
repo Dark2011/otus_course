@@ -8,7 +8,9 @@
 
 #include "ip_filter.h"
 #include <boost/asio/ip/address_v4.hpp>
-#include <boost/endian.hpp>
+
+#define BOOST_ENDIAN_DEPRECATED_NAMES // I should use it for compatibility with new boost versions
+#include <boost/endian/endian.hpp>
 
 
 namespace ip_tools
@@ -55,7 +57,7 @@ namespace ip_tools
                 size_t offset = OctetesCnt - oct_iter;
                 uint32_t address = 0;
                 memcpy(&address, addr.to_bytes().data(), 4);
-                boost::endian::big_to_native_inplace(address);
+                boost::endian::endian_reverse_inplace(address);
 
                 int applyOffset = (address >> (offset * 8)) & 255;
                 
