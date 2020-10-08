@@ -53,7 +53,14 @@ namespace ip_tools
             auto internal_comparator = [OctetesCnt, addr](int oct_iter, unsigned char byteValue)
             {
                 size_t offset = OctetesCnt - oct_iter;
-                size_t applyOffset = 0;//addr.to_uint() >> (offset * 8)) & 255;
+                uint32_t address = 0;
+                memcpy(&address, addr.to_bytes().data(), 4);
+                boost::endian::big_to_native_inplace(address);
+
+                int applyOffset = (address >> (offset * 8)) & 255;
+                
+                //int applyOffset = (addr.to_uint() >> (offset * 8)) & 255; // it doesn't work with boost less the 1.68.0 
+                //  (in version 1.58.0 that is default version of libboost_all_dev we should use addr.to_ulong()
                 return !(applyOffset ^ byteValue);
             };
 
