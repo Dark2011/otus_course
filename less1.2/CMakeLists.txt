@@ -13,8 +13,8 @@ project(ip_filter VERSION 0.0.${BUILD_NUM})
 
 set(Boost_USE_MULTITHREADED ON)
 #message (STATUS "Boost inlude dir is: " $ENV{BOOST_INCLUDEDIR})
-find_package(Boost REQUIRED system unit_test_framework)
-
+#find_package(Boost REQUIRED system unit_test_framework)
+find_package(Boost)
 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 configure_file(version.h.in ${PROJECT_SOURCE_DIR}/include/version.h)
