@@ -28,6 +28,7 @@ namespace ip_tools
                 continue;
             }
         }
+        auto i = _ipPool[0].to_uint();
     }
 
     const ipv4_vector& IpFilter::getIpPool() const { return _ipPool; }
@@ -52,7 +53,7 @@ namespace ip_tools
             auto internal_comparator = [OctetesCnt, addr](int oct_iter, unsigned char byteValue)
             {
                 size_t offset = OctetesCnt - oct_iter;
-                size_t applyOffset = (addr.to_uint() >> (offset * 8)) & 255;
+                size_t applyOffset = 0;//addr.to_uint() >> (offset * 8)) & 255;
                 return !(applyOffset ^ byteValue);
             };
 
