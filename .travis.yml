@@ -1,6 +1,6 @@
 language: cpp
 before_script:
-- sudo apt-get install libboost-all-dev=1.72.0 -y
+- sudo apt-get install libboost-dev=1.68.0 -y
 - echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt-get update -qq
 script:
