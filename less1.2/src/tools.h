@@ -43,7 +43,7 @@ namespace ip_tools
     }
 
 
-    inline auto fast_split(const std::string& str, char* d)
+    inline auto fast_split(const std::string& str, const char* d)
     {
         ip_tools::string_vector res;
         using separator = boost::char_separator<char>;
