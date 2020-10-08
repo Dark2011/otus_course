@@ -52,7 +52,7 @@ namespace ip_tools
             auto internal_comparator = [OctetesCnt, addr](int oct_iter, unsigned char byteValue)
             {
                 int offset = OctetesCnt - oct_iter;
-                int applyOffset = (addr.to_uint() >> (offset * 8)) & 255;
+                int applyOffset = 0;//(addr.to_uint() >> (offset * 8)) & 255;
                 return !(applyOffset ^ byteValue);
             };
 
