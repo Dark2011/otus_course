@@ -4,9 +4,9 @@
 //#define READ_FROM_FILE
 
 
-
 int main(int argc, char* argv[])
 {
+
     try
     {
         ip_tools::string_vector data;
@@ -32,13 +32,14 @@ int main(int argc, char* argv[])
                                                     { 46 }
                                                 };
 
-        for (auto&& fitler_iter : filters)
+        for (const auto& fitler_iter : filters)
         {
             std::cout << std::endl;
             auto filteredIp = ipfilter.applyFilter(fitler_iter);
             ipfilter.print(filteredIp);
         }
-
+		
+		std::cout << std::endl;
 
 
         // 222.173.235.246

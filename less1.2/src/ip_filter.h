@@ -29,7 +29,7 @@ namespace ip_tools
 		*
 		*
 		*/
-		string_vector applyFilter(std::vector<int> filter);
+		string_vector applyFilter(const std::vector<int>& filter);
 
 		template <typename T>
 		void print(const T& ipData) const
